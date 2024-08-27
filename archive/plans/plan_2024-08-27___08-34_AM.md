@@ -1,0 +1,26 @@
+# Salesforce Bridge Micrsoservice 
+
+## 1. Application Description
+
+This is an application to interface with Salesforce.
+
+## 2. Application Architecture
+
+This application will be a microservice that will be responsible for interfacing with Salesforce.
+
+## 3. Next Steps
+
+- [ ] Import the simple-salesforce package
+- [ ] Create the API in Salesforce
+- [ ] Create the API in the microservice
+- [ ] Create the API in the Salesforce Bridge
+
+## 4. Next Step
+
+Import the simple-salesforce package:
+
+- [ ] Make a file called `salesforce.py`
+- [ ] Import the simple-salesforce package
+- [ ] Create a connection to Salesforce
+- [ ] Create a function to sanity-check the connection
+
