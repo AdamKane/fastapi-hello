@@ -10,6 +10,8 @@ This is a microservice application to interface with Salesforce. We want to be a
 - Get a list of all Opportunity record names.
 - Get the list of all Opportunity records names where the stage is 'Proposal Due'.
 
+Note that this is the final list of envisioned features for this application. The task at hand is to develop the features desribed above that are not yet implemented.
+
 ## 2. Application Architecture
 
 This application is a microservice responsible for interfacing with Salesforce. It uses FastAPI as the web framework and simple-salesforce for Salesforce integration. 
@@ -19,6 +21,8 @@ Design principles:
     - Minimize the number of external libraries used.
     - Refer to requirements.txt for a list of external libraries used.
     - If a library must be used, prefer libraries already in the requirements.txt file.
+    - Minimize complexity, focus on delivering features described in the application description.
+    
 
 ## 3. Current State
 
