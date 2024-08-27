@@ -9,8 +9,11 @@ This is a microservice application to interface with Salesforce. We want to be a
 - Get a list of all Opportunity records for a given Account.
 - Get a list of all Opportunity record names.
 - Get the list of all Opportunity records names where the stage is 'Proposal Due'.
-
-Note that this is the final list of envisioned features for this application. The task at hand is to develop the features desribed above that are not yet implemented.
+- Get a list of all Lead records, sorted by name.
+- Get the total count of all Lead records.
+- Get a list of all fields for a given Salesforce object (e.g. Account).
+- Get a list of all fields for a specific Salesforce object: Lead.
+- Across all Lead records, get a list of the least used fields. Where "least used" is defined as the field that has the highest number of null values.
 
 ## 2. Application Architecture
 
@@ -22,7 +25,6 @@ Design principles:
     - Refer to requirements.txt for a list of external libraries used.
     - If a library must be used, prefer libraries already in the requirements.txt file.
     - Minimize complexity, focus on delivering features described in the application description.
-    
 
 ## 3. Current State
 
@@ -33,29 +35,19 @@ Design principles:
 - [x] Created unit tests for Salesforce connection functions
 - [x] Created unit tests for FastAPI endpoints
 - [x] All current tests are passing
+- [x] Implemented all basic Salesforce operations mentioned in the application description
 
 ## 4. Next Steps
 
-- [ ] Implement comprehensive logging
-- [ ] Implement dependency injection for Salesforce connection
-- [ ] Add authentication and authorization
-- [ ] Implement pagination for large result sets
-- [ ] Add more detailed error messages
-- [ ] Implement caching to improve performance
-- [ ] Add more endpoints for specific Salesforce operations
+- [ ] Get the total count of all Lead records.
+- [ ] 
 
 ## 5. Next Step
 
-Implement comprehensive logging:
+Get the total count of all Lead records:
 
-- [ ] Choose a logging library (e.g., Python's built-in logging module)
-- [ ] Set up a logging configuration (log levels, format, output destination)
-- [ ] Add logging statements to main.py for API requests and responses
-- [ ] Add logging statements to salesforce.py for Salesforce operations
-- [ ] Implement error logging for exception handling
-- [ ] Create a utility function for consistent log formatting
-- [ ] Update existing functions to include appropriate log messages
-- [ ] Test logging functionality to ensure it captures necessary information
+- [ ] 
+- [ ] 
 
 
 
