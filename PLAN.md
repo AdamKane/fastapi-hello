@@ -29,10 +29,10 @@ Design principles:
 - [x] Implement basic error handling for Salesforce connection
 - [x] Create unit tests for Salesforce connection functions
 - [x] Create unit tests for FastAPI endpoints
+- [x] Fix the failing test for Salesforce connection failure
 
 ## 4. Next Steps
 
-- [ ] Fix the failing test for Salesforce connection failure
 - [ ] Create the API in Salesforce
 - [ ] Integrate Salesforce connection with FastAPI
 - [ ] Implement comprehensive error handling and logging
@@ -42,13 +42,14 @@ Design principles:
 
 ## 5. Next Step
 
-Fix the failing test for Salesforce connection failure:
+Create the API in Salesforce and integrate it with FastAPI:
 
-- [x] Review the `test_create_salesforce_connection_failure` test in test_salesforce.py
-- [x] Identify the cause of the test failure (missing environment variables)
-- [x] Update the tests to use mock environment variables
-- [x] Add a new test for mocked Salesforce connection
-- [x] Skip the real connection test to prevent failures in environments without credentials
-- [ ] Update error handling documentation if necessary
-- [ ] Consider adding instructions for setting up real credentials for local testing
+- [ ] Design the Salesforce API structure
+- [ ] Create necessary custom objects or fields in Salesforce (if required)
+- [ ] Set up API endpoints in Salesforce
+- [ ] Update the `salesforce.py` file to interact with the new Salesforce API
+- [ ] Create new FastAPI endpoints that correspond to the Salesforce API
+- [ ] Implement error handling for API interactions
+- [ ] Write unit tests for the new FastAPI endpoints
+- [ ] Update documentation to reflect the new API integration
 
