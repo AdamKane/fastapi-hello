@@ -31,6 +31,31 @@ def create_salesforce_connection():
         print(f"Failed to connect to Salesforce: {str(e)}")
         return None
 
+def get_account_names(sf):
+    query = "SELECT Name FROM Account"
+    result = sf.query(query)
+    return [record['Name'] for record in result['records']]
+
+def get_contacts_for_account(sf, account_id):
+    query = f"SELECT Id, FirstName, LastName, Email FROM Contact WHERE AccountId = '{account_id}'"
+    result = sf.query(query)
+    return result['records']
+
+def get_opportunities_for_account(sf, account_id):
+    query = f"SELECT Id, Name, StageName, Amount FROM Opportunity WHERE AccountId = '{account_id}'"
+    result = sf.query(query)
+    return result['records']
+
+def get_all_opportunity_names(sf):
+    query = "SELECT Name FROM Opportunity"
+    result = sf.query(query)
+    return [record['Name'] for record in result['records']]
+
+def get_proposal_due_opportunities(sf):
+    query = "SELECT Name FROM Opportunity WHERE StageName = 'Proposal Due'"
+    result = sf.query(query)
+    return [record['Name'] for record in result['records']]
+
 if __name__ == "__main__":
     sf_connection = create_salesforce_connection()
     if sf_connection:

@@ -1,4 +1,4 @@
-# Salesforce Bridge Microservice 
+# Salesforce Bridge Microservice Development Plan
 
 ## 1. Application Description
 
@@ -22,34 +22,37 @@ Design principles:
 
 ## 3. Current State
 
-- [x] Import the simple-salesforce package
-- [x] Create a connection to Salesforce
-- [x] Create a function to sanity-check the connection
-- [x] Set up basic FastAPI application structure
-- [x] Implement basic error handling for Salesforce connection
-- [x] Create unit tests for Salesforce connection functions
-- [x] Create unit tests for FastAPI endpoints
-- [x] Fix the failing test for Salesforce connection failure
+- [x] Able to create a connection to Salesforce
+- [x] Able to get salesforce instance name
+- [x] Fixed the NameError in main.py
+- [x] Implemented basic FastAPI application structure
+- [x] Created unit tests for Salesforce connection functions
+- [x] Created unit tests for FastAPI endpoints
+- [x] All current tests are passing
 
 ## 4. Next Steps
 
-- [ ] Create the API in Salesforce
-- [ ] Integrate Salesforce connection with FastAPI
-- [ ] Implement comprehensive error handling and logging
-- [ ] Add more endpoints for specific Salesforce operations
+- [ ] Implement comprehensive logging
 - [ ] Implement dependency injection for Salesforce connection
 - [ ] Add authentication and authorization
+- [ ] Implement pagination for large result sets
+- [ ] Add more detailed error messages
+- [ ] Implement caching to improve performance
+- [ ] Add more endpoints for specific Salesforce operations
 
 ## 5. Next Step
 
-Create the API in Salesforce and integrate it with FastAPI:
+Implement comprehensive logging:
 
-- [ ] Design the Salesforce API structure
-- [ ] Create necessary custom objects or fields in Salesforce (if required)
-- [ ] Set up API endpoints in Salesforce
-- [ ] Update the `salesforce.py` file to interact with the new Salesforce API
-- [ ] Create new FastAPI endpoints that correspond to the Salesforce API
-- [ ] Implement error handling for API interactions
-- [ ] Write unit tests for the new FastAPI endpoints
-- [ ] Update documentation to reflect the new API integration
+- [ ] Choose a logging library (e.g., Python's built-in logging module)
+- [ ] Set up a logging configuration (log levels, format, output destination)
+- [ ] Add logging statements to main.py for API requests and responses
+- [ ] Add logging statements to salesforce.py for Salesforce operations
+- [ ] Implement error logging for exception handling
+- [ ] Create a utility function for consistent log formatting
+- [ ] Update existing functions to include appropriate log messages
+- [ ] Test logging functionality to ensure it captures necessary information
+
+
+
 

@@ -1,16 +1,14 @@
-Test run at: 2024-08-27 12:59:01
+Test run at: 2024-08-27 13:20:35
 
-=================================================== test session starts ====================================================
+=============================================================================================================================== test session starts ===============================================================================================================================
 platform win32 -- Python 3.11.5, pytest-8.3.2, pluggy-1.5.0 -- C:\Repos\fastapi-hello\.venv\Scripts\python.exe
 cachedir: .pytest_cache
 rootdir: C:\Repos\fastapi-hello
 plugins: anyio-4.4.0
-collecting ... collected 5 items
+collecting ... collected 3 items
 
-test_main.py::test_root PASSED                                                                                        [ 20%]
-test_main.py::test_say_hello PASSED                                                                                   [ 40%]
-test_main.py::test_say_hello_empty_name PASSED                                                                        [ 60%]
-test_main.py::test_say_hello_special_characters PASSED                                                                [ 80%]
-test_salesforce.py::test_real_salesforce_connection PASSED                                                            [100%]
+test_main.py::test_root PASSED                                                                                                                                                                                                                                               [ 33%]
+test_main.py::test_say_hello PASSED                                                                                                                                                                                                                                          [ 66%]
+test_salesforce.py::test_real_salesforce_connection PASSED                                                                                                                                                                                                                   [100%]
 
-==================================================== 5 passed in 1.95s =====================================================
+================================================================================================================================ 3 passed in 1.99s ================================================================================================================================

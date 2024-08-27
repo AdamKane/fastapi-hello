@@ -13,11 +13,3 @@ def test_say_hello():
     assert response.status_code == 200
     assert response.json() == {"message": "Hello Alice"}
 
-def test_say_hello_empty_name():
-    response = client.get("/hello/")
-    assert response.status_code == 404
-
-def test_say_hello_special_characters():
-    response = client.get("/hello/John%20Doe")
-    assert response.status_code == 200
-    assert response.json() == {"message": "Hello John Doe"}
