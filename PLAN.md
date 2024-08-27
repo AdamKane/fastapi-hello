@@ -2,11 +2,17 @@
 
 ## 1. Application Description
 
-This is a microservice application to interface with Salesforce.
+This is a microservice application to interface with Salesforce. We want to be able to do things like:
+
+- Get a list of all Salesforce Account record names.
+- Get a list of all Contact records for a given account.
+- Get a list of all Opportunity records for a given Account.
+- Get a list of all Opportunity record names.
+- Get the list of all Opportunity records names where the stage is 'Proposal Due'.
 
 ## 2. Application Architecture
 
-This application is a microservice responsible for interfacing with Salesforce. It uses FastAPI as the web framework and simple-salesforce for Salesforce integration.
+This application is a microservice responsible for interfacing with Salesforce. It uses FastAPI as the web framework and simple-salesforce for Salesforce integration. 
 
 Design principles:
 
