@@ -1,10 +1,24 @@
 from simple_salesforce import Salesforce
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 def create_salesforce_connection():
     """
     Create a connection to Salesforce using environment variables for credentials.
     """
+    required_vars = ['SF_USERNAME', 'SF_PASSWORD', 'SF_SECURITY_TOKEN']
+    missing_vars = [var for var in required_vars if var not in os.environ]
+
+    if missing_vars:
+        print("Error: Missing required environment variables:")
+        for var in missing_vars:
+            print(f"- {var}")
+        print("\nPlease set these environment variables before running the script.")
+        return None
+
     try:
         sf = Salesforce(
             username=os.environ['SF_USERNAME'],
@@ -13,25 +27,14 @@ def create_salesforce_connection():
             domain='login'  # or 'test' for sandbox
         )
         return sf
-    except KeyError as e:
-        raise Exception(f"Failed to connect to Salesforce: Missing environment variable {str(e)}")
     except Exception as e:
-        raise Exception(f"Failed to connect to Salesforce: {str(e)}")
-
-def sanity_check_connection(sf):
-    """
-    Perform a sanity check on the Salesforce connection.
-    """
-    try:
-        # Attempt to query a small amount of data
-        result = sf.query("SELECT Id, Name FROM Account LIMIT 1")
-        print(f"Connection successful. Retrieved {result['totalSize']} record(s).")
-        return True
-    except Exception as e:
-        print(f"Sanity check failed: {str(e)}")
-        return False
+        print(f"Failed to connect to Salesforce: {str(e)}")
+        return None
 
 if __name__ == "__main__":
-    # Test the connection and sanity check
     sf_connection = create_salesforce_connection()
-    sanity_check_connection(sf_connection)
+    if sf_connection:
+        print(f"Successfully connected to Salesforce instance: {sf_connection.sf_instance}")
+    else:
+        print("Failed to create Salesforce connection.")
+

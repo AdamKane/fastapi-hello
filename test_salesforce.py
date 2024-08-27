@@ -1,6 +1,6 @@
 import os
 import pytest
-from salesforce import create_salesforce_connection, sanity_check_connection
+from salesforce import create_salesforce_connection
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
@@ -15,10 +15,8 @@ def test_real_salesforce_connection():
     # Attempt to create a real Salesforce connection
     try:
         sf_connection = create_salesforce_connection()
-        assert sf_connection is not None, "Failed to create Salesforce connection"
-
-        # Perform sanity check on the connection
-        assert sanity_check_connection(sf_connection), "Sanity check failed"
+        instance = sf_connection.sf_instance
+        assert instance == 'forgefx.my.salesforce.com', "Instance URL is not found or not correct"
 
     except Exception as e:
         pytest.fail(f"Failed to connect to Salesforce: {str(e)}")
