@@ -1,41 +1,16 @@
-================================================================ test session starts =================================================================
+Test run at: 2024-08-27 12:45:21
+
+==================================================================== test session starts =====================================================================
 platform win32 -- Python 3.11.5, pytest-8.3.2, pluggy-1.5.0 -- C:\Repos\fastapi-hello\.venv\Scripts\python.exe
 cachedir: .pytest_cache
 rootdir: C:\Repos\fastapi-hello
 plugins: anyio-4.4.0
-collecting ... collected 9 items
+collecting ... collected 5 items
 
-test_main.py::test_root PASSED                                                                                                                  [ 11%]
-test_main.py::test_say_hello PASSED                                                                                                             [ 22%]
-test_main.py::test_say_hello_empty_name PASSED                                                                                                  [ 33%]
-test_main.py::test_say_hello_special_characters PASSED                                                                                          [ 44%]
-test_salesforce.py::test_create_salesforce_connection_success PASSED                                                                            [ 55%]
-test_salesforce.py::test_create_salesforce_connection_missing_env_var PASSED                                                                    [ 66%]
-test_salesforce.py::test_create_salesforce_connection_failure FAILED                                                                            [ 77%]
-test_salesforce.py::test_sanity_check_connection_success PASSED                                                                                 [ 88%]
-test_salesforce.py::test_sanity_check_connection_failure PASSED                                                                                 [100%]
+test_main.py::test_root PASSED                                                                                                                          [ 20%]
+test_main.py::test_say_hello PASSED                                                                                                                     [ 40%]
+test_main.py::test_say_hello_empty_name PASSED                                                                                                          [ 60%]
+test_main.py::test_say_hello_special_characters PASSED                                                                                                  [ 80%]
+test_salesforce.py::test_real_salesforce_connection PASSED                                                                                              [100%]
 
-====================================================================== FAILURES ======================================================================
-_____________________________________________________ test_create_salesforce_connection_failure ______________________________________________________
-
-mock_salesforce = <MagicMock name='Salesforce' id='2181099685968'>
-
-    def test_create_salesforce_connection_failure(mock_salesforce):
-        mock_salesforce.side_effect = Exception("Connection failed")
-        with pytest.raises(Exception) as exc_info:
-            create_salesforce_connection()
->       assert "Failed to connect to Salesforce" in str(exc_info.value)
-E       assert 'Failed to connect to Salesforce' in "Missing environment variable: 'SF_USERNAME'"
-E        +  where "Missing environment variable: 'SF_USERNAME'" = str(Exception("Missing environment variable: 'SF_USERNAME'"))
-E        +    where Exception("Missing environment variable: 'SF_USERNAME'") = <ExceptionInfo Exception("Missing environment variable: 'SF_USERNAME'") tblen=2>.value
-
-test_salesforce.py:35: AssertionError
-================================================================== warnings summary ==================================================================
-.venv\Lib\site-packages\zeep\utils.py:1
-  C:\Repos\fastapi-hello\.venv\Lib\site-packages\zeep\utils.py:1: DeprecationWarning: 'cgi' is deprecated and slated for removal in Python 3.13
-    import cgi
-
--- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-============================================================== short test summary info ===============================================================
-FAILED test_salesforce.py::test_create_salesforce_connection_failure - assert 'Failed to connect to Salesforce' in "Missing environment variable: 'S...
-======================================================= 1 failed, 8 passed, 1 warning in 1.24s =======================================================
+===================================================================== 5 passed in 2.28s ======================================================================

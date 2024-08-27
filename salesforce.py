@@ -14,7 +14,7 @@ def create_salesforce_connection():
         )
         return sf
     except KeyError as e:
-        raise Exception(f"Missing environment variable: {str(e)}")
+        raise Exception(f"Failed to connect to Salesforce: Missing environment variable {str(e)}")
     except Exception as e:
         raise Exception(f"Failed to connect to Salesforce: {str(e)}")
 

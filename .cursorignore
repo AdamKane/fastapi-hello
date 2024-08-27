@@ -1,15 +1,7 @@
-# Ignore EVERYTHING, except main.py, salesforce.py, utils directory
-
-*
-!main.py
-!test_main.py
-!test_main.http
-
-
-!salesforce.py
-!test_salesforce.py
-
-!test_results.txt
-
-!PLAN.md
-
+# Ignore .cursorignore and these directories:
+.cursorignore
+.idea/
+.venv/
+__pycache__/
+archive/
+prompts/
