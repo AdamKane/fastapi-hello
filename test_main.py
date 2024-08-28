@@ -13,3 +13,10 @@ def test_say_hello():
     assert response.status_code == 200
     assert response.json() == {"message": "Hello Alice"}
 
+def test_count_leads():
+    response = client.get("/leads/count")
+    assert response.status_code == 200
+    assert "total_leads" in response.json()
+    assert isinstance(response.json()["total_leads"], int)
+    assert response.json()["total_leads"] >= 0
+

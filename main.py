@@ -2,7 +2,8 @@ from fastapi import FastAPI, HTTPException, Depends
 from simple_salesforce import Salesforce
 from salesforce import (
     create_salesforce_connection, get_account_names, get_contacts_for_account,
-    get_opportunities_for_account, get_all_opportunity_names, get_proposal_due_opportunities
+    get_opportunities_for_account, get_all_opportunity_names, get_proposal_due_opportunities,
+    get_lead_count
 )
 
 app = FastAPI()
@@ -15,7 +16,7 @@ def get_sf_connection():
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Hello World!"}
 
 @app.get("/hello/{name}")
 async def say_hello(name: str):
@@ -53,5 +54,12 @@ async def list_all_opportunities(sf: Salesforce = Depends(get_sf_connection)):
 async def list_proposal_due_opportunities(sf: Salesforce = Depends(get_sf_connection)):
     try:
         return get_proposal_due_opportunities(sf)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/leads/count")
+async def count_leads(sf: Salesforce = Depends(get_sf_connection)):
+    try:
+        return {"total_leads": get_lead_count(sf)}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

@@ -34,7 +34,8 @@ def create_salesforce_connection():
 def get_account_names(sf):
     query = "SELECT Name FROM Account"
     result = sf.query(query)
-    return [record['Name'] for record in result['records']]
+    account_names = [record['Name'] for record in result['records']]
+    return sorted(account_names)
 
 def get_contacts_for_account(sf, account_id):
     query = f"SELECT Id, FirstName, LastName, Email FROM Contact WHERE AccountId = '{account_id}'"
@@ -56,10 +57,17 @@ def get_proposal_due_opportunities(sf):
     result = sf.query(query)
     return [record['Name'] for record in result['records']]
 
+def get_lead_count(sf):
+    """
+    Get the total count of all Lead records.
+    """
+    query = "SELECT COUNT() FROM Lead"
+    result = sf.query(query)
+    return result['totalSize']
+
 if __name__ == "__main__":
     sf_connection = create_salesforce_connection()
     if sf_connection:
         print(f"Successfully connected to Salesforce instance: {sf_connection.sf_instance}")
     else:
         print("Failed to create Salesforce connection.")
-

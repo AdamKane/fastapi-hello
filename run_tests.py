@@ -21,8 +21,8 @@ def run_tests_and_save_results():
     # Restore stdout
     sys.stdout = stdout_backup
 
-    # Get current time
-    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    # Get current time in 12-hour format
+    current_time = datetime.now().strftime("%Y-%m-%d %I:%M:%S %p")
 
     # Write test results to file with current time at the top
     with open('test_results.txt', 'w') as f:

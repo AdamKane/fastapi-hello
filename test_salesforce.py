@@ -2,7 +2,8 @@ import os
 import pytest
 from salesforce import (
     create_salesforce_connection, get_account_names, get_contacts_for_account,
-    get_opportunities_for_account, get_all_opportunity_names, get_proposal_due_opportunities
+    get_opportunities_for_account, get_all_opportunity_names, get_proposal_due_opportunities,
+    get_lead_count
 )
 from dotenv import load_dotenv
 
@@ -70,6 +71,14 @@ def test_get_proposal_due_opportunities():
     proposal_due_opps = get_proposal_due_opportunities(sf_connection)
     assert isinstance(proposal_due_opps, list), "get_proposal_due_opportunities should return a list"
     assert all(isinstance(name, str) for name in proposal_due_opps), "All opportunity names should be strings"
+
+def test_get_lead_count():
+    sf_connection = create_salesforce_connection()
+    assert sf_connection is not None, "Failed to create Salesforce connection"
+    
+    lead_count = get_lead_count(sf_connection)
+    assert isinstance(lead_count, int), "get_lead_count should return an integer"
+    assert lead_count >= 0, "Lead count should be non-negative"
 
 if __name__ == "__main__":
     pytest.main([__file__])
